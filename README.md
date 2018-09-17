@@ -4,6 +4,7 @@ Download web pages
 -----------
 
 	load/*
+        webtimings.py       Fetch a web page and log its Navigation Timings, Resource Timings, and HAR file
 
 Evaluate generated data
 ------------------------
