@@ -5,6 +5,7 @@ Download web pages
 
 	load/*
         webtimings.py       Fetch a web page and log its Navigation Timings, Resource Timings, and HAR file
+        fetchurl.sh         Fetch URLs from a file 1 or more times, log data (see above)
 
 Evaluate generated data
 ------------------------
