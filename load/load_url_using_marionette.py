@@ -2,8 +2,19 @@
 
 """
 Use Firefox with Marionette to load a URL and measure timings
+using a freshly initialized Firefox profile, see firefox_prefs.js in this directory.
 
 Exports Navigation Timings and Resource Timings
+
+Arguments:
+[1] URL to fetch
+[2] Scenario (for logging)
+[3] How many times to fetch the URL
+[4] Log directory for Navigation Timings, Resource Timings, and HAR files
+
+Dependencies:
+    Firefox                   (tested with version 61.0.2 and 62.0.2)
+    har-export-trigger-0.61.1 (.xpi needs to be in the same directory as this script)
 
 """
 
@@ -22,7 +33,7 @@ import subprocess
 
 TIMEOUT = 60
 
-FIREFOX_PATH = "/home/theresa/misc/software/firefox/firefox-61.0.2/firefox/firefox"
+FIREFOX_PATH = "/opt/firefox/firefox"
 
 def createDirectory(path):
 	try:
@@ -181,7 +192,10 @@ def logHAR(driver, source, timestamp):
 		return None
 
 	try:
-		HARtext = driver.execute_script("foo = window.HAR.triggerExport().then( result => { return result;}); return foo;", new_sandbox=False)
+        # No idea why, but the devtools have to be open for this to work.
+        # Otherwise, the Promise returned in window.foo never resolves.
+        # Also, this probably should be an async script.
+		HARtext = driver.execute_script("window.foo = HAR.triggerExport().then(harLog => { return(harLog); }); return window.foo;", sandbox=None, new_sandbox=False)
 	except Exception as err:
 		print("Could not get HAR, got Error " + str(err))
 		return None
@@ -234,8 +248,7 @@ if __name__ == "__main__":
 	time.sleep(1)
 
 	# Launch Firefox with the new profile
-	p = subprocess.Popen([FIREFOX_PATH + " -profile /tmp/foo" + str(timestamp) + " -marionette"], shell=True, preexec_fn=os.setsid)
-
+	p = subprocess.Popen([FIREFOX_PATH + " -profile /tmp/foo" + str(timestamp) + " -marionette -devtools"], shell=True, preexec_fn=os.setsid)
 
 	client = Marionette('localhost', port=2828)
 	client.start_session()
@@ -261,7 +274,6 @@ if __name__ == "__main__":
 			time.sleep(1)
 
 			client.navigate(URL_TO_FETCH)
-			#event,messages=chrome.wait_event("Page.frameStoppedLoading", timeout=TIMEOUT)
 
 		except Exception as e:
 			print("Error fetching page " + URL_TO_FETCH + ": " + str(e) + "\n")
@@ -272,14 +284,14 @@ if __name__ == "__main__":
 			sys.exit(-1)
 		createDirectory(LOGDIR + "res")
 
-		#try:
-		#	logNavigationTimings(client, URL_TO_FETCH, timestamp, unixtimestamp, LOGDIR + "navtimings.log", scenario = SCENARIO)
-		#except Exception as e:
-		#	print("Error logging Navigation timings: " + str(sys.exc_info()[0]) + ", " + str(e))
-		#try:
-		#	logResourceTimings(client, URL_TO_FETCH, timestamp, printout=False, scenario = SCENARIO)
-		#except Exception as e:
-		#	print("Error logging Resource timings: " + str(sys.exc_info()[0]) + ", " + str(e))
+		try:
+			logNavigationTimings(client, URL_TO_FETCH, timestamp, unixtimestamp, LOGDIR + "navtimings.log", scenario = SCENARIO)
+		except Exception as e:
+			print("Error logging Navigation timings: " + str(sys.exc_info()[0]) + ", " + str(e))
+		try:
+			logResourceTimings(client, URL_TO_FETCH, timestamp, printout=False, scenario = SCENARIO)
+		except Exception as e:
+			print("Error logging Resource timings: " + str(sys.exc_info()[0]) + ", " + str(e))
 		try:
 			logHAR(client, URL_TO_FETCH, timestamp)
 		except Exception as e:
@@ -287,4 +299,4 @@ if __name__ == "__main__":
 
 	client.close()
 	time.sleep(1)
-	#os.killpg(os.getpgid(p.pid), signal.SIGTERM)
+	os.killpg(os.getpgid(p.pid), signal.SIGTERM)

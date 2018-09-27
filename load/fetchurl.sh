@@ -1,12 +1,11 @@
 #!/bin/bash
-# Script that fetches a URL n times using selenium and logs their completion times
-#
+# Script that fetches URLs from a file once or multiple times and logs the results
+# (c) Theresa Enghardt (theresa@inet.tu-berlin.de), 2018
 
-URL="http://www.debian.org"
 
-TIMES=1 # How often to fetch the URL
+TIMES=1 # How many times to fetch each URL
 
-SCENARIO="firsttry"
+SCENARIO="test" # Use this string to annotate your results, e.g., what was your network config
 
 if [ "$1" == '' ];
 then
@@ -36,7 +35,7 @@ if [ "$4" != '' ];
 then
 	LOGPREFIX="$4"
 else
-    LOGPREFIX="log/run-$DATERUN-browser"
+    LOGPREFIX="log/run-$DATERUN-test"
 fi
 
 
@@ -54,8 +53,8 @@ do
 
 		echo "Fetching $u"
 	
-		echo "calling: ./webtimings.py $u ${POLICYNAMES[$p]},$SCENARIO 1 $LOGPREFIX/" "${POLICYNAMES[$p]}"
-		./webtimings.py $u "${POLICYNAMES[$p]},$SCENARIO" 1 "$LOGPREFIX/" "${POLICYNAMES[$p]}"
+		echo "calling: ./load_url_using_marionette.py $u $SCENARIO 1 $LOGPREFIX/"
+		./load_url_using_marionette.py $u "$SCENARIO" 1 "$LOGPREFIX/"
 		exitstatus=$?
         killall -q firefox
 
@@ -66,6 +65,5 @@ do
 
 	done < $URLFILE
 
-    killall -q firefox-esr
     killall -q firefox
 done
