@@ -21,6 +21,7 @@ Download web pages
         fetchurl.sh                     Fetch URLs from a file 1 or more times, log data (see above)
         load_url_using_marionette.py    Fetch a URL using Firefox and Marionette
                                         Log Navigation Timings, Resource Timings, and a HAR file
+        load_url_using_chrome.py        Fetch a URL using Chrome and DevTools, log data (see above)
 
         load_url_using_selenium.py      Fetch a URL using Selenium and geckodriver, log data (see above)
 

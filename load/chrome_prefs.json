@@ -1,0 +1,337 @@
+{
+  "account_id_migration_state": 2,
+  "account_tracker_service_last_update": "13181940354572880",
+  "autofill": {
+    "last_version_disused_addresses_deleted": 69,
+    "last_version_disused_credit_cards_deleted": 69,
+    "orphan_rows_removed": true
+  },
+  "browser": {
+    "last_known_google_url": "about:blank",
+    "show_home_button": false,
+    "window_placement": {
+      "bottom": 1197,
+      "left": 0,
+      "maximized": false,
+      "right": 1500,
+      "top": 19,
+      "work_area_bottom": 1200,
+      "work_area_left": 1366,
+      "work_area_right": 3286,
+      "work_area_top": 0
+    }
+  },
+  "countryid_at_install": 17477,
+  "default_apps_install_state": 2,
+  "distribution": {
+    "do_not_create_desktop_shortcut": true,
+    "do_not_create_quick_launch_shortcut": true,
+    "do_not_launch_chrome": true,
+    "do_not_register_for_update_launch": true,
+    "import_bookmarks": false,
+    "import_history": false,
+    "import_home_page": false,
+    "import_search_engine": false,
+    "make_chrome_default": false,
+    "make_chrome_default_for_user": false,
+    "ping_delay": 60,
+    "suppress_first_run_default_browser_prompt": true,
+    "system_level": true,
+    "verbose_logging": true
+  },
+  "download": {
+    "directory_upgrade": true
+  },
+  "extensions": {
+    "alerts": {
+      "initialized": true
+    },
+    "chrome_url_overrides": {
+      
+    },
+    "last_chrome_version": "69.0.3497.100",
+    "settings": {
+      "hdfkmmpiahkdifjfkhgkeamdeeaopkpj": {
+        "active_permissions": {
+          "api": [
+            "devtools"
+          ],
+          "explicit_host": [
+            "\u003Call_urls>",
+            "chrome://favicon/*"
+          ],
+          "manifest_permissions": [
+            
+          ],
+          "scriptable_host": [
+            "\u003Call_urls>"
+          ]
+        },
+        "commands": {
+          
+        },
+        "content_settings": [
+          
+        ],
+        "creation_flags": 38,
+        "events": [
+          
+        ],
+        "from_bookmark": false,
+        "from_webstore": false,
+        "granted_permissions": {
+          "api": [
+            "devtools"
+          ],
+          "explicit_host": [
+            "\u003Call_urls>",
+            "chrome://favicon/*"
+          ],
+          "manifest_permissions": [
+            
+          ],
+          "scriptable_host": [
+            "\u003Call_urls>"
+          ]
+        },
+        "incognito_content_settings": [
+          
+        ],
+        "incognito_preferences": {
+          
+        },
+        "install_time": "13183201388079024",
+        "location": 4,
+        "never_activated_since_loaded": true,
+        "newAllowFileAccess": true,
+        "path": "/home/user/software/har-export-trigger-0.6.1",
+        "preferences": {
+          
+        },
+        "regular_only_preferences": {
+          
+        },
+        "state": 1,
+        "was_installed_by_default": false,
+        "was_installed_by_oem": false
+      }
+    }
+  },
+  "first_run_tabs": [
+    "http://www.example.com",
+    "http://new_tab_page"
+  ],
+  "homepage": "http://new_tab_page",
+  "homepage_is_newtabpage": false,
+  "http_original_content_length": "1774071",
+  "http_received_content_length": "1774071",
+  "pinned_tabs": [
+    
+  ],
+  "plugins": {
+    "plugins_list": [
+      
+    ]
+  },
+  "profile": {
+    "avatar_index": 26,
+    "blacklisted_credentials_stripped": true, 
+    "content_settings": {
+      "exceptions": {
+        "accessibility_events": {
+          
+        },
+        "app_banner": {
+          
+        },
+        "auto_select_certificate": {
+          
+        },
+        "automatic_downloads": {
+          
+        },
+        "autoplay": {
+          
+        },
+        "background_sync": {
+          
+        },
+        "bluetooth_guard": {
+          
+        },
+        "client_hints": {
+          
+        },
+        "clipboard": {
+          
+        },
+        "cookies": {
+          
+        },
+        "durable_storage": {
+          
+        },
+        "flash_data": {
+          
+        },
+        "geolocation": {
+          
+        },
+        "images": {
+          
+        },
+        "important_site_info": {
+          
+        },
+        "javascript": {
+          
+        },
+        "media_stream_camera": {
+          
+        },
+        "media_stream_mic": {
+          
+        },
+        "midi_sysex": {
+          
+        },
+        "mixed_script": {
+          
+        },
+        "notifications": {
+          
+        },
+        "password_protection": {
+          
+        },
+        "payment_handler": {
+          
+        },
+        "permission_autoblocking_data": {
+          
+        },
+        "plugins": {
+          
+        },
+        "popups": {
+          
+        },
+        "ppapi_broker": {
+          
+        },
+        "protocol_handler": {
+          
+        },
+        "sensors": {
+          
+        },
+        "sound": {
+          
+        },
+        "ssl_cert_decisions": {
+          
+        },
+        "subresource_filter": {
+          
+        },
+        "subresource_filter_data": {
+          
+        },
+        "usb_chooser_data": {
+          
+        },
+        "usb_guard": {
+          
+        }
+      },
+      "pref_version": 1
+    },
+    "exit_type": "Normal",
+    "exited_cleanly": true,
+    "managed_user_id": "",
+    "name": "Profil 1",
+    "observed_session_time": {
+      "incognito_window_in_product_help_observed_session_time_key": 0.0,
+      "new_tab_in_product_help_observed_session_time_key": 0.0
+    }
+  },
+  "protection": {
+    "macs": {
+      "browser": {
+        "show_home_button": "C187B3BDEA3720C8C959C7F0D5378E14C018B98DEEA256E39A2FDF0D8B156807"
+      },
+      "default_search_provider_data": {
+        "template_url_data": "705F2D2FDD2FF483A1A9E675DFD71CCB223E81A2CEBF5D20C031A68B0020CF77"
+      },
+      "extensions": {
+        "settings": {
+          "ahfgeienlihckogmohjhadlkjgocpleb": "5E07FF7CB4D18A93F5F07FF3732E3F4A416C7BF37A9CD54BBD89050B5325DA04",
+          "gfdkimpbcpahaombhbimeihdjnejgicl": "E9304D8AECD204BC85C265C863A6AFBDDA6B4E59D20A5B315B2070B82069A7C5",
+          "kmendfapggjehodndflmmgagdbamhnfd": "D8D9E36DA11DBCD51EC4CCB40D2F6FE99C8E06318B98AED81F43D6A1ED65EC0B",
+          "mfehgcgbbipciphmccgaenjidiccnmng": "FFDB2589ECC34194F68E4F7008B4A43F3E13E2133C5148E70DF632FE744BD412",
+          "mhjfbmdgcfjbbpaeojofohoefgiehjai": "0C4ACF4EE3F2275796FCB696754BC5EF94E22C2110C9D193792AB9D3E15F09A4",
+          "neajdppkdcdipfabeoofebfddakdcjhd": "809A575E1203471E5E248E8E0409056CB2AFB2ED73D02E9AC72C1972625DB00D",
+          "nkeimhogjdpnpccoofpliimaahmaaome": "0892F6342FFC3D2639B3ABA35126CC33B6E32808CD66FA79E2F1974D3CB7969C",
+          "nmmhkkegccagdldgiimedpiccmgmieda": "88D68F59E600AB760FCF15BD29D537703FBD1234FFEB6EBA146DA26C5A27973B",
+          "pkedcjkdefgpdelpbcmbmeomcjbeemfm": "00BBC19124B3BD957DC940FBB42CF6444F2A57CA3430BBBA6B9016BF2C158E86"
+
+        }
+      },
+      "google": {
+        "services": {
+          "account_id": "07620F46EF9994C94D86883494C13E89DC6509B3D4E8978B2E18F6776C85CDBF",
+          "last_account_id": "8452449E1468A5CF585BF23BDC52A3CA1BED67E36262AAE4BAC3583936F8B7AB",
+          "last_username": "C202CF3B01A560B8B7D71D3B0076B61126EF72F4B11D79B3EA6E3661DB757E93",
+          "username": "1CA30EB4EEE885888D93E71C93383D2E2A14715338EDF9B157FF935504B57767"
+        }
+      },
+      "homepage": "C89CDC15C18C769D144813F3187AAD54A1BD3C09E4B7860F1E52A1B940C9DD5A",
+      "homepage_is_newtabpage": "6EB88194D163AC735391CD317C0F375CA224F0E10CA3AF5D2F76D18D0099FF2A",
+      "media": {
+        "storage_id_salt": "C29149AE129B959FDEB0CA9E54B924BF0A8BAF533937C017ADFBC9AA2FC7BC0C"
+      },
+      "pinned_tabs": "14F8B2B035A86C0AEA5637DFD2AA7F5BDEADD0AAFF13141260E56C9477047715",
+      "prefs": {
+        "preference_reset_time": "7B22235E8A603BE387D81441C8C88F0C4E591567147FA05BE235C96189AC4490"
+      },
+      "safebrowsing": {
+        "incidents_sent": "F1827D0C55798CE7843DAF5DDEAB06A9BB2F9628970A5DCDA2543102436E4749"
+      },
+      "search_provider_overrides": "99AC1EA12DA6196886F08A934B3B5006A725063DF41E9D0EE38F1FCFFDFDD5B0",
+      "session": {
+        "restore_on_startup": "74E1D625EF359DDAF159A835BC3731F9BCEC2AFE542FE783845A6292F572D0F5",
+        "startup_urls": "D7174760A7168B445632139CD74E389AA027590889201AF1A252FFDE27B0531D"
+      }
+    }
+  },
+  "signin": {
+    "AccountReconcilor": {
+      "kDiceMigrationOnStartup2": true
+    }
+  },
+  "sync_promo": {
+    "show_on_first_run_allowed": false,
+    "user_skipped": true
+  },
+  "spellcheck": {
+    "dictionaries": [
+      "en-US"
+    ],
+    "dictionary": ""
+  },
+  "search": {
+    "suggest_enabled": false
+  },
+  "payments": {
+    "can_make_payment_enabled": false
+  },
+  "net": {
+    "network_prediction_options": 2,
+    "network_qualities": {
+      "CAESABiAgICA+P////8B": "4G"
+    }
+  },
+  "alternate_error_pages": {
+    "enabled": false
+  }
+}
