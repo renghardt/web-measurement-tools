@@ -1,2 +1,4 @@
 *.log
 load/log/*
+load/pcap/*
+compute/__pycache__/

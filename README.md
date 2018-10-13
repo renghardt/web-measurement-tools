@@ -42,6 +42,17 @@ Step 3 outputs:
 * All objects successfully read from packet capture trace, with matching HAR file and Resource Timings objects, if available (to object_sizes_trace.log)
 
 
+How to plot and evaluate computed data
+=================
+
+`cd eval`
+
+impact_on_metrics.R -- Impact of different data sources on load times and Byte Index
+plot_redirects.R -- Plot number of redirects and time taken up by them
+validate_object_sizes.R -- Compare packet trace ground truth to HAR and Resource Timings
+plot_compare_object_sizes.R -- Compare individual object sizes for all objects
+compare_number_of_objects_and_page_size.R -- Compare numbers of objects in page load and total page size
+
 Overview of scripts
 ===================
 
@@ -58,7 +69,28 @@ Download web pages
 
         load_url_using_selenium.py      Fetch a URL using Selenium and geckodriver, log data (see above)
 
+Compute metrics from data
+-------------------------
+
+    compute/*
+        computetimings.py                Calculate Byte Index, redirect times, succeeded or failed page loads...
+        hartimings.py                    Log important parts of HAR file contents to a CSV (used by computetimings)
+        get_starttimestamp_from_workload_output        Read workload_output and log all pages and starttimestamps to starttimings.log (called by computetimings)
+        get_trace_for_timestamps        For failed page loads, read packet capture trace and dump DNS and HTTP
+        validate_object_size.py            From packet capture trace, calculate ground truth object sizes and match them to HAR and Res
+        filter_out_chrome_overhead.sh    Filter out DNS queries and connections not connected to page load
+        filter_out_firefox_overhead.sh    Filter out DNS queries and connections not connected to page load
+
+
+
 Evaluate generated data
 ------------------------
 
-	eval/*
+    eval/*
+        impact_on_metrics.R            Impact of different data sources on load times and Byte Index
+        plot_redirects.R -- Plot number of redirects and time taken up by them
+        validate_object_sizes.R        Compare packet trace ground truth to HAR and Resource Timings
+        plot_compare_object_sizes.R    Compare individual object sizes for all objects
+        compare_number_of_objects_and_page_size.R    Compare numbers of objects in page load and total page size
+        plottimings.R                Helper functions to read and plot metrics
+        R_functions.R                Generic helper functions
