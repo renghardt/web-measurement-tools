@@ -52,12 +52,21 @@ loadtime_metrics = c("PLT_with_redirects", "PLT_without_redirects")
 loadtimes_df = put_metrics_in_dataframe(data, loadtime_metrics)
 loadtimes_df$value = ifelse( loadtimes_df$value < 0, 0, loadtimes_df$value)
 
-plot.timings.cdfs(loadtimes_df, metrics="value", splitby="metrics", plot="eps", filename=paste(OUTPUTDIR, "/ecdf_loadtimes", sep=""), mainlabel="", xlabel="Time [ms]", log="x")
+plot.timings.cdfs(loadtimes_df, metrics="value", splitby="metrics", plot="eps", filename=paste(OUTPUTDIR, "/ecdf_loadtimes", sep=""), mainlabel="", xlabel="Time [ms]", log="x", legendposition="topleft")
+
+dataframe_per_page = data.frame(page = levels(data$page))
+dataframe_per_page[["median_PLT_with_redirects_per_page"]] = with(data, tapply(X=data[["PLT_with_redirects"]], IND=page, FUN=median))
+dataframe_per_page[["median_PLT_without_redirects_per_page"]] = with(data, tapply(X=PLT_without_redirects, IND=page, FUN=median))
+str(dataframe_per_page)
+
+data_per_page_df = put_metrics_in_dataframe(dataframe_per_page, c("median_PLT_with_redirects_per_page", "median_PLT_without_redirects_per_page"))
+
+plot.timings.cdfs(data_per_page_df, metrics="value", splitby="metrics", plot="eps", filename=paste(OUTPUTDIR, "/ecdf_loadtimes_by_page", sep=""), mainlabel="", xlabel="Time [ms]", legendposition="topleft", log="x")
 
 
 # Put Object Index and Byte Index into data frame, plot CDF
 object_index_metrics = c("har_object_index", "res_object_index")
-byte_index_metrics = c("har_byte_index_bodysize", "har_byte_index_bodyorcontent", "res_byte_index")
+byte_index_metrics = c( "har_byte_index_bodyorcontent", "har_byte_index_bodysize", "res_byte_index")
 if (!is.null(data[["har_byte_transfersize"]]) & INCLUDE_TRANSFERSIZE) {
 	if (any(!is.na(data[["har_byte_transfersize"]]))) {
 		byte_index_metrics = c(byte_index_metrics, "har_byte_index_transfersize")	
@@ -88,12 +97,12 @@ plot.timings.cdfs(byte_index_comparison_data, metrics="datadiff", splitby="compa
 data[["object_index_rel_diff"]] = apply(data, 1, function(x) { return(ifelse(all(is.na(c(x[["res_object_index"]], x[["har_object_index"]]))), NA, as.numeric(x[["res_object_index_-_har_object_index"]]) / max(as.numeric(x[["res_object_index"]]), as.numeric(x[["har_object_index"]]), na.rm=T) * 100))})
 data[["byte_index_rel_diff_res_-_bodyorcontent"]] = apply(data, 1, function(x) { return(ifelse(all(is.na(c(x[["har_byte_index_bodyorcontent"]], x[["res_byte_index"]]))), NA, as.numeric(x[["res_byte_index_-_har_byte_index_bodyorcontent"]]) / max(as.numeric(x[["res_byte_index"]]), as.numeric(x[["har_byte_index_bodyorcontent"]]), na.rm=T) * 100)) } )
 data[["byte_index_rel_diff_res_-_har"]] = apply(data, 1, function(x) { return(ifelse(all(is.na(c(x[["res_byte_index"]], x[["har_byte_index_bodysize"]]))), NA, as.numeric(x[["res_byte_index_-_har_byte_index_bodysize"]]) / max(as.numeric(x[["res_byte_index"]]), as.numeric(x[["har_byte_index_bodysize"]]), na.rm=T) * 100)) })
-data[["byte_index_rel_diff_bodyorcontent_-_har"]] = apply(data, 1, function(x) { return(ifelse(all(is.na(c(x[["har_byte_index_bodysize"]], x[["har_byte_index_bodyorcontent"]]))), NA, as.numeric(x[["har_byte_index_bodyorcontent_-_har_byte_index_bodysize"]]) / max(as.numeric(x[["har_byte_index_bodysize"]]), as.numeric(x[["har_byte_index_bodyorcontent"]]), na.rm=T) * 100))})
+data[["byte_index_rel_diff_bodyorcontent_-_har"]] = apply(data, 1, function(x) { return(ifelse(all(is.na(c(x[["har_byte_index_bodysize"]], x[["har_byte_index_bodyorcontent"]]))), NA, as.numeric(x[["har_byte_index_bodysize_-_har_byte_index_bodyorcontent"]]) / max(as.numeric(x[["har_byte_index_bodysize"]]), as.numeric(x[["har_byte_index_bodyorcontent"]]), na.rm=T) * 100))})
 if (INCLUDE_TRANSFERSIZE & !is.null(data[["har_byte_index_transfersize_-_har_byte_index_bodyorcontent"]])) {
 	data[["byte_index_rel_diff_transfersize_-_bodyorcontent"]] = apply(data, 1, function(x) { return(ifelse(all(is.na(c(x[["har_byte_index_transfersize"]], x[["har_byte_index_bodyorcontent"]]))), NA, as.numeric(x[["har_byte_index_transfersize_-_har_byte_index_bodyorcontent"]]) / max(as.numeric(x[["har_byte_index_transfersize"]]), as.numeric(x[["har_byte_index_bodyorcontent"]]), na.rm=T) * 100))})
 }
 
-rel_diff_metrics = c("byte_index_rel_diff_res_-_bodyorcontent", "byte_index_rel_diff_res_-_har", "byte_index_rel_diff_bodyorcontent_-_har")
+rel_diff_metrics = c("byte_index_rel_diff_bodyorcontent_-_har", "byte_index_rel_diff_res_-_bodyorcontent", "byte_index_rel_diff_res_-_har")
 if (INCLUDE_TRANSFERSIZE & !is.null(data[["har_byte_index_transfersize_-_har_byte_index_bodyorcontent"]])) {
 	rel_diff_metrics = c(rel_diff_metrics, "byte_index_rel_diff_transfersize_-_bodyorcontent")
 }

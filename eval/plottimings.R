@@ -320,7 +320,7 @@ barplottimings <- function(timingdata, metrics="actual_time", mainlabel="Timings
 
 	#policycolors=c("azure4","azure3","white")
 	#policycolors=gray(1:7 / 8)[seq(1,7, length.out=numberofpolicies)]
-	policycolors=c("#202020", "#404040", "#808080", "#A0A0A0", "#C0C0C0", "#DFDFDF")[1:length(levels(timingdata[[splitby[2]]]))]
+	policycolors=c("#202020", "#A0A0A0", "#C0C0C0", "#DFDFDF")[1:length(levels(timingdata[[splitby[2]]]))]
 	#cat("Policy colors:", policycolors, "\n")
 	if (length(policynames) == 0) {
 		policynames = as.character(unique(timingdata[[splitby[2]]]))

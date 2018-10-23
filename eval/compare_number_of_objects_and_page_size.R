@@ -55,7 +55,8 @@ number_comparison_data = compute_comparison_dataframe(data, c("res_number_of_res
 
 filename_comparison = "compare_numbers_of_objects"
 
-plot.timings.cdfs(number_comparison_data, metrics="datadiff", splitby="comparison", plot="eps", filename=paste(OUTPUTDIR, "/ecdf_", filename_comparison, sep=""), mainlabel="", xlabel=paste(ifelse(PLOT_ABS_DIFFERENCES == TRUE, "Absolute d", "D"), "ifference in number of objects", sep=""), legendposition="bottomright", log="x")
+plot.timings.cdfs(number_comparison_data, metrics="datadiff", splitby="comparison", plot="eps", filename=paste(OUTPUTDIR, "/ecdf_", filename_comparison, sep=""), mainlabel="", xlabel=paste(ifelse(PLOT_ABS_DIFFERENCES == TRUE, "Absolute d", "D"), "ifference in object count", sep=""), legendposition="bottomright", log="x")
+
 
 
 # Compare object sizes:

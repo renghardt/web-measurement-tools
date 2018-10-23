@@ -446,6 +446,13 @@ plotlabel.human.readable <- function(label, exclude="") {
     if (grepl("Redirect_share_of_PLT", label)) {
         return("PLT")
     }
+	if (grepl("median_PLT_with_redirects_per_page", label)) {
+		return("PLT with redirects")
+	}
+	if (grepl("median_PLT_without_redirects_per_page", label)) {
+		return("PLT without redirects")
+	}
+
     if (grepl("Redirect_share_of_domContentLoaded", label)) {
         return("domContentLoaded")
     }
@@ -524,7 +531,10 @@ plotlabel.human.readable <- function(label, exclude="") {
     if (grepl("har_byte_index_bodyorcontent_-_har_byte_index_bodysize", label)) {
         return("Content-Length - HAR")
     }
-    if (grepl("res_byte_index_-_har_byte_index_bodysize_Alexa_10001-11000", label)) {
+	if (grepl("har_byte_index_bodysize_-_har_byte_index_bodyorcontent", label)) {
+		return("HAR - Content-Length")
+	}
+	if (grepl("res_byte_index_-_har_byte_index_bodysize_Alexa_10001-11000", label)) {
         return("Res - HAR (Alexa 10001-11000)")
     }
     if (grepl("res_byte_index_-_har_byte_index_bodysize_Alexa_1000", label)) {
@@ -558,7 +568,7 @@ plotlabel.human.readable <- function(label, exclude="") {
         return("Res - HAR")
     }
     if (grepl("byte_index_rel_diff_bodyorcontent_-_har", label)) {
-        return("Content-Length - HAR")
+        return("HAR - Content-Length")
     }
     if (grepl("byte_index_rel_diff_transfersize_-_bodyorcontent", label)) {
         return("HAR transfer size - Content-Length")
@@ -750,7 +760,7 @@ prepare_file <- function(plot = "terminal", filename="plot", cex=1, width=20, he
 	} else if (plot == "eps") {
 		cat("Plotting eps to", paste(filename, ".eps", sep=""), "\n")
 		setEPS()
-		postscript(paste(filename, ".eps", sep=""), height=height/3, width=width/3)
+		postscript(paste(filename, ".eps", sep=""), height=height/4, width=width/3)
 		par(mar=c(spacebelow,3,0.1,0.5))
 		cex=1.5
     } else if (plot=="png") {
@@ -1141,7 +1151,10 @@ print_comparison_summary <- function(data, metrics) {
 put_metrics_in_dataframe <- function(data, metrics) {
 	data_list = list()
 	for (m in metrics) {
-		newdata = data.frame(metrics = as.character(m), value=data[[m]], page=data$page, run=data$run)
+		newdata = data.frame(metrics = as.character(m), value=data[[m]], page=data$page)
+		if (!is.null(data$run)) {
+			newdata$run = data$run
+		}
 		data_list = c(data_list, list(newdata))
 	}
 	data_df = do.call(rbind, data_list)
