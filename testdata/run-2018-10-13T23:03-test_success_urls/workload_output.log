@@ -1,0 +1,97 @@
+Try 1/1
+Fetching http://debian.org
+calling: ./load_url_using_marionette.py http://debian.org test_success_urls 1 ../testdata/run-2018-10-13T23:03-test_success_urls/
+Run 1/1 - Fetching http://debian.org at 2018-10-13+23-03-49.507041
+Navigation timings for page http://debian.org:
+		redirectStart:		0 ms
+		redirectEnd:		0 ms
+		fetchStart:		179 ms
+		domainLookupStart:	182 ms
+		domainLookupEnd:	185 ms
+		connectStart:		185 ms
+		secureConnectionStart:	226 ms
+		connectEnd:		311 ms
+		requestStart:		312 ms
+		responseStart:		336 ms
+		responseEnd:		365 ms
+		domLoading:		367 ms
+		domInteractive:		406 ms
+		domContentLoadedEventStart:	410 ms
+		domContentLoadedEventEnd:	427 ms
+		domComplete:		800 ms
+		loadEventStart:		800 ms
+		loadEventEnd:		800 ms
+
+		firstPaint:		735 ms
+		domContentFlushed:	406 ms
+
+Logged Navigation Timings and firstPaint to ../testdata/run-2018-10-13T23:03-test_success_urls/navtimings.log
+Logged all 11 resource timings to ../testdata/run-2018-10-13T23:03-test_success_urls/res/debian.org+2018-10-13+23-03-49.507041.res.log
+Logged HAR to ../testdata/run-2018-10-13T23:03-test_success_urls/har/debian.org+2018-10-13+23-03-49.507041.har
+Got exit status 0
+Done fetching http://debian.org (1 out of 1 times)
+
+Fetching http://google.com
+calling: ./load_url_using_marionette.py http://google.com test_success_urls 1 ../testdata/run-2018-10-13T23:03-test_success_urls/
+Run 1/1 - Fetching http://google.com at 2018-10-13+23-03-56.888706
+Navigation timings for page http://google.com:
+		redirectStart:		0 ms
+		redirectEnd:		0 ms
+		fetchStart:		272 ms
+		domainLookupStart:	274 ms
+		domainLookupEnd:	274 ms
+		connectStart:		274 ms
+		secureConnectionStart:	301 ms
+		connectEnd:		365 ms
+		requestStart:		365 ms
+		responseStart:		453 ms
+		responseEnd:		511 ms
+		domLoading:		456 ms
+		domInteractive:		561 ms
+		domContentLoadedEventStart:	575 ms
+		domContentLoadedEventEnd:	588 ms
+		domComplete:		1054 ms
+		loadEventStart:		1054 ms
+		loadEventEnd:		1061 ms
+
+		firstPaint:		563 ms
+		domContentFlushed:	570 ms
+
+Logged Navigation Timings and firstPaint to ../testdata/run-2018-10-13T23:03-test_success_urls/navtimings.log
+Logged all 17 resource timings to ../testdata/run-2018-10-13T23:03-test_success_urls/res/google.com+2018-10-13+23-03-56.888706.res.log
+Logged HAR to ../testdata/run-2018-10-13T23:03-test_success_urls/har/google.com+2018-10-13+23-03-56.888706.har
+Got exit status 0
+Done fetching http://google.com (1 out of 1 times)
+
+Fetching http://maunz.org
+calling: ./load_url_using_marionette.py http://maunz.org test_success_urls 1 ../testdata/run-2018-10-13T23:03-test_success_urls/
+Run 1/1 - Fetching http://maunz.org at 2018-10-13+23-04-04.927689
+Navigation timings for page http://maunz.org:
+		redirectStart:		0 ms
+		redirectEnd:		0 ms
+		fetchStart:		4 ms
+		domainLookupStart:	67 ms
+		domainLookupEnd:	70 ms
+		connectStart:		70 ms
+		secureConnectionStart:	-1539464646941 ms
+		connectEnd:		97 ms
+		requestStart:		98 ms
+		responseStart:		133 ms
+		responseEnd:		133 ms
+		domLoading:		141 ms
+		domInteractive:		165 ms
+		domContentLoadedEventStart:	171 ms
+		domContentLoadedEventEnd:	211 ms
+		domComplete:		380 ms
+		loadEventStart:		380 ms
+		loadEventEnd:		380 ms
+
+		firstPaint:		232 ms
+		domContentFlushed:	170 ms
+
+Logged Navigation Timings and firstPaint to ../testdata/run-2018-10-13T23:03-test_success_urls/navtimings.log
+Logged all 1 resource timings to ../testdata/run-2018-10-13T23:03-test_success_urls/res/maunz.org+2018-10-13+23-04-04.927689.res.log
+Logged HAR to ../testdata/run-2018-10-13T23:03-test_success_urls/har/maunz.org+2018-10-13+23-04-04.927689.har
+Got exit status 0
+Done fetching http://maunz.org (1 out of 1 times)
+

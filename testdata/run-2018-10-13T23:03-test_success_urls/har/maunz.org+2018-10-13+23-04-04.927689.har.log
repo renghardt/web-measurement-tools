@@ -1,0 +1,2 @@
+http://maunz.org/,GET,HTTP/1.1,200,text/html,test_success_urls,None,None,None,None,NA,337,560,223,333,2018-10-13+23-04-07.008000,0.0,0,4,27,0,0,35,0
+http://maunz.org/excuse_me.png,GET,HTTP/1.1,200,image/png,test_success_urls,None,None,None,None,NA,289,389706,389417,-1,2018-10-13+23-04-07.159000,151.0,0,0,0,0,0,28,134

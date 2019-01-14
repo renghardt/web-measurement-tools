@@ -1,6 +1,6 @@
-This repository contains some scripts to automatically download web pages and analyze page loads, e.g., extracting performance metrics such as Page Load Time.
+This repository contains tools to automatically download web pages and analyze page loads, e.g., extracting performance metrics such as Page Load Time.
 
-These scripts were tested on Debian stable, using Firefox 62.0.2 and har-export-trigger-0.6.1 (the latter is provided with this repository).
+These tools were tested on Debian 9 (stretch), using Firefox 62.0.2 and har-export-trigger-0.6.1 (the latter is provided with this repository).
 
 To make a packet capture, your local user needs permissions to use tcpdump.
 See capture.sh script for instructions for Linux.
@@ -28,6 +28,9 @@ With custom list of URLs, more than once per URL, and/or custom scenario log str
 How to compute data based on page load data
 =================
 
+*Note:* This requires the data be available in a directory called "data" within the "compute" directory.
+By default, this links to the ../testdata directory.
+
 1. `cd compute`
 2. `./computetimings.py`
 3. `./validate_object_sizes.py`
@@ -44,6 +47,10 @@ Step 3 outputs:
 
 How to plot and evaluate computed data
 =================
+
+*Note:* This requires the data be available in a directory called "data" within the "compute" directory.
+By default, this links to the ../testdata directory.
+You need to run the "computetimings.py" script on the dataset first, see the section above.
 
 `cd eval`
 

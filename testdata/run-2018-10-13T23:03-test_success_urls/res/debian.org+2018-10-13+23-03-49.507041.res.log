@@ -1,0 +1,11 @@
+https://www.debian.org/debhome.css,test_success_urls,link,http/1.1,1591,4198,382,NA,NA,382,382,382,382,NA,382,429,471,471,89
+https://www.debian.org/debian-en.css,test_success_urls,link,http/1.1,349,1050,382,NA,NA,382,429,429,429,469,512,512,563,563,181
+https://www.debian.org/Pics/identica.png,test_success_urls,img,http/1.1,766,766,383,NA,NA,383,429,440,440,NA,440,605,646,647,264
+https://www.debian.org/Pics/openlogo-50.png,test_success_urls,img,http/1.1,2006,2006,383,NA,NA,383,429,439,439,NA,439,605,649,649,266
+https://www.debian.org/Pics/planet.png,test_success_urls,img,http/1.1,454,454,384,NA,NA,384,429,441,441,NA,441,605,645,645,261
+https://www.debian.org/debian.css,test_success_urls,css,http/1.1,4770,16856,475,NA,NA,475,475,475,475,NA,475,477,524,524,49
+https://www.debian.org/empty.css,test_success_urls,css,http/1.1,0,0,476,NA,NA,476,477,477,477,524,565,565,604,605,129
+https://www.debian.org/Pics/gradient.png,test_success_urls,css,http/1.1,247,247,612,NA,NA,612,612,613,613,NA,613,645,684,684,72
+https://www.debian.org/Pics/emblem-downloads.png,test_success_urls,css,http/1.1,638,638,614,NA,NA,614,614,614,614,NA,614,647,688,688,74
+https://www.debian.org/Pics/softwaves_web_bg.png,test_success_urls,css,http/1.1,35760,35760,614,NA,NA,614,617,617,617,663,692,692,737,797,183
+https://www.debian.org/Pics/softwaves.png,test_success_urls,css,http/1.1,52387,52387,615,NA,NA,615,617,619,619,NA,619,649,692,755,140
