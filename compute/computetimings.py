@@ -973,12 +973,18 @@ def main(argv=[]):
 			print("Could not get navtimings for " + run + '...' + ("" if workload is None else ", " + str(workload)))
 			#continue
 
-		successful_workload = check_which_were_successful(run, plotlabel, navtimings, workload_filter = workload, log=logtofile)
+		# The following requires workload_output.log and urlfile-*.log from the run(s)
+		# and, preferably, the .pcap file(s), so we can analyze the failure modes for failed runs
 
-		# Only plot and log timings for successful runs, i.e.:
-		# There exist Navigation Timings, Resource Timings, and a HAR file
-		successful_timestamps = [ s.split("+", 1)[1] for s in successful_workload ]
-		navtimings = filter_timings(navtimings, successful_timestamps, "starttime")
+		try:
+			successful_workload = check_which_were_successful(run, plotlabel, navtimings, workload_filter = workload, log=logtofile)
+
+			# Only plot and log timings for successful runs, i.e.:
+			# There exist Navigation Timings, Resource Timings, and a HAR file
+			successful_timestamps = [ s.split("+", 1)[1] for s in successful_workload ]
+			navtimings = filter_timings(navtimings, successful_timestamps, "starttime")
+		except Exception as e:
+			print("No workload_output.log found - cannot check for successful runs, using all runs instead.")
 
 		compute_timings(navtimings, run, log=logtofile)
 		if logtofile:
